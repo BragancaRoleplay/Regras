@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Index de Regras RP — 200 Regras | Servidor</title>
+  <style>
+    :root{
+      --bg:#0b0b0b; --panel:#111; --muted:#bdbdbd; --accent:#e6e6e6; --glass:rgba(255,255,255,0.03);
+      --maxw:1100px; --radius:16px; --sidebarw:320px;
+      font-family: Inter, Roboto, Helvetica, Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--accent);-webkit-font-smoothing:antialiased}
+    .wrap{display:flex;min-height:100vh;gap:28px;align-items:flex-start;justify-content:center;padding:36px}
+    .sidebar{width:var(--sidebarw);background:linear-gradient(180deg,var(--panel),#0e0e0e);border-radius:var(--radius);padding:24px;position:sticky;top:24px;height:calc(100vh - 48px);overflow:auto;box-shadow:0 6px 30px rgba(0,0,0,0.7)}
+    .brand{font-weight:700;font-size:18px;letter-spacing:1px;margin-bottom:14px}
+    .desc{font-size:13px;color:var(--muted);margin-bottom:18px}
+    .toc{list-style:none;padding:0;margin:0}
+    .toc li{margin:8px 0}
+    .toc a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14px;display:block;padding:8px;border-radius:8px}
+    .toc a:hover{background:var(--glass);color:var(--accent)}
+    .search{display:flex;gap:8px;margin-bottom:18px}
+    .search input{flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--accent)}
+    .main{max-width:var(--maxw);flex:1}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+    header h1{margin:0;font-size:20px}
+    header p{margin:0;color:var(--muted);font-size:13px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:14px;margin-bottom:18px;border:1px solid rgba(255,255,255,0.03)}
+    .section{margin-bottom:18px}
+    .section h2{margin:0 0 8px 0;font-size:16px}
+    ol.rules{margin:0;padding:0 0 0 20px;color:var(--muted)}
+    ol.rules li{margin:8px 0;line-height:1.45}
+    .rule-num{color:var(--muted);font-weight:700;margin-right:6px}
+    .note{font-size:13px;color:#9e9e9e;margin-top:8px}
+    footer{color:var(--muted);font-size:13px;margin-top:14px;text-align:center}
+    @media(max-width:900px){.wrap{padding:16px}.sidebar{display:none}.main{max-width:100%}}
+    .topbar{display:flex;gap:12px;align-items:center}
+    .pill{background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:999px;font-weight:600}
+    .muted{color:var(--muted)}
+    .rule-strong{color:#fff}
+  </style>
+  <script>
+    function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'})}
+    function searchRules(){
+      const q=document.getElementById('q').value.toLowerCase();
+      const items=document.querySelectorAll('ol.rules li');
+      items.forEach(li=>{li.style.display = (li.textContent.toLowerCase().includes(q)) ? 'list-item' : 'none'})
+    }
+    document.addEventListener('DOMContentLoaded',()=>{
+      document.getElementById('q').addEventListener('input',searchRules)
+    })
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <aside class="sidebar card">
+      <div class="brand">Index RP — 200 Regras</div>
+      <div class="desc">Tema: Preto & Branco • Organização em 10 seções • Use a busca para filtrar regras.</div>
+      <div class="search">
+        <input id="q" placeholder="Buscar regras (ex: metagaming, polícia...)" />
+      </div>
+      <nav>
+        <ul class="toc">
+          <li><a href="#sec-1" onclick="go('sec-1')">1 — Regras Gerais</a></li>
+          <li><a href="#sec-2" onclick="go('sec-2')">2 — Interação Social</a></li>
+          <li><a href="#sec-3" onclick="go('sec-3')">3 — Crimes e PvP</a></li>
+          <li><a href="#sec-4" onclick="go('sec-4')">4 — Polícia & Roleplay Legal</a></li>
+          <li><a href="#sec-5" onclick="go('sec-5')">5 — Facções & Organização</a></li>
+          <li><a href="#sec-6" onclick="go('sec-6')">6 — Trânsito & Veículos</a></li>
+          <li><a href="#sec-7" onclick="go('sec-7')">7 — Staff & Punções</a></li>
+          <li><a href="#sec-8" onclick="go('sec-8')">8 — Economia & Itens</a></li>
+          <li><a href="#sec-9" onclick="go('sec-9')">9 — Chat, Voz & Comunidade</a></li>
+          <li><a href="#sec-10" onclick="go('sec-10')">10 — Powergaming/Metagaming/RDM/VDM</a></li>
+        </ul>
+      </nav>
+      <div style="margin-top:18px" class="muted">Última atualização: <!-- dynamic placeholder --> 15/10/2025</div>
+    </aside>
+
+    <main class="main">
+      <header>
+        <div>
+          <h1>Index de Regras RP — 200 Regras</h1>
+          <p class="muted">Leia com atenção. Regras aplicáveis a todos os jogadores no servidor.</p>
+        </div>
+        <div class="topbar">
+          <div class="pill">Preto & Branco</div>
+          <div class="pill">200 regras</div>
+        </div>
+      </header>
+
+      <section id="sec-1" class="section card">
+        <h2>1 — Regras Gerais</h2>
+        <ol class="rules">
+          <li><span class="rule-num">1.</span> Todos os jogadores devem manter comportamento de roleplay (RP) dentro do servidor; atitudes que quebrem a imersão estão proibidas.</li>
+          <li><span class="rule-num">2.</span> É proibido usar contas múltiplas para obter vantagem injusta (multiboxing somente com autorização da administração).</li>
+          <li><span class="rule-num">3.</span> Não é permitido burlar, explorar bugs, ou utilizar cheats; todo exploit deve ser reportado imediatamente.</li>
+          <li><span class="rule-num">4.</span> Respeite decisões da staff durante ocorrências; desacato contínuo pode levar a punição.</li>
+          <li><span class="rule-num">5.</span> Conteúdo ofensivo, racista, misógino ou discriminatório é proibido e sujeito a ban permanente.</li>
+          <li><span class="rule-num">6.</span> Não divulgue informações pessoais de outros jogadores (doxxing).</li>
+          <li><span class="rule-num">7.</span> Reclamações públicas sobre staff devem ser feitas via ticket ou canal apropriado; spam/assédio contra staff é proibido.</li>
+          <li><span class="rule-num">8.</span> É proibido vender contas, cargos, ou serviços do servidor fora dos canais oficiais.</li>
+          <li><span class="rule-num">9.</span> Uso de linguagem sexual explícita em situações fora de contexto RP é proibido; mantenha o público seguro.</li>
+          <li><span class="rule-num">10.</span> Jogadores devem seguir os termos de serviço da plataforma (Discord / host / MTA).</li>
+          <li><span class="rule-num">11.</span> É proibido forjar logs, evidências ou provas contra jogadores ou staff.</li>
+          <li><span class="rule-num">12.</span> Não atrapalhe ou interrompa eventos oficiais do servidor sem permissão.</li>
+          <li><span class="rule-num">13.</span> Ao entrar em evento com rules especiais, siga as regras específicas do evento.</li>
+          <li><span class="rule-num">14.</span> Abuso de report (report falso ou malicioso) será punido.</li>
+          <li><span class="rule-num">15.</span> Todos respondem por suas ações no RP: consequências devem ser aceitas se estiverem dentro das regras.</li>
+          <li><span class="rule-num">16.</span> Use nomes, avatares e apelidos adequados ao universo RP do servidor; nomes ofensivos serão alterados.</li>
+          <li><span class="rule-num">17.</span> Não anuncie serviços/servidores concorrentes dentro do servidor sem autorização.</li>
+          <li><span class="rule-num">18.</span> Jogadores com problemas técnicos devem procurar suporte no canal designado; evite floodar canais públicos.</li>
+          <li><span class="rule-num">19.</span> Picardia (trolling) que quebre RP repetidamente será considerada infração.</li>
+          <li><span class="rule-num">20.</span> Qualquer dúvida sobre interpretação das regras deve ser enviada à staff via ticket.</li>
+        </ol>
+      </section>
+
+      <section id="sec-2" class="section card">
+        <h2>2 — Interação Social</h2>
+        <ol class="rules">
+          <li><span class="rule-num">21.</span> Trate outros jogadores com respeito em RP; ofensas pessoais fora do contexto RP são proibidas.</li>
+          <li><span class="rule-num">22.</span> Todas as interações importantes (negociações, acordos, juramentos) devem ser registradas via /comando apropriado quando houver.</li>
+          <li><span class="rule-num">23.</span> Não interrompa roleplays alheios intencionalmente; espere sua vez ou peça permissão.</li>
+          <li><span class="rule-num">24.</span> Auto-RP (agir como se outra pessoa estivesse presente quando não está) é permitido, mas não pode substituir interação real quando necessário para o cenário.</li>
+          <li><span class="rule-num">25.</span> NPCs controlados por staff ou sistema têm comportamento determinado; não os abuse nem tente explorá-los fora do design do sistema.</li>
+          <li><span class="rule-num">26.</span> Ao criar eventos RP, informe staff quando houver impacto em performance ou regras especiais.</li>
+          <li><span class="rule-num">27.</span> Não force outro jogador a aceitar uma ação RP; consentimento é necessário para interações que causem danos permanentes ao personagem.</li>
+          <li><span class="rule-num">28.</span> Se sofrer abuso RP, use os canais de denúncia e apresente provas (vídeo, logs, testemunhas).</li>
+          <li><span class="rule-num">29.</span> Evite spam de ações ou comandos que poluam o chat e atrapalhem a imersão.</li>
+          <li><span class="rule-num">30.</span> Ao concordar com um contrato RP (escrito ou verbal), cumpra as cláusulas, salvo se rescindido em RP ou por staff.</li>
+          <li><span class="rule-num">31.</span> Propostas de casamento, facções e parcerias devem seguir regras internas e ter registro quando exigido.</li>
+          <li><span class="rule-num">32.</span> NÃO use chat de equipe (staff) para benefício pessoal em RP sem permissão.</li>
+          <li><span class="rule-num">33.</span> Ao iniciar uma cena sensível (violência, conteúdo adulto), avise os participantes e respeite limites.</li>
+          <li><span class="rule-num">34.</span> A divulgação de segredos de roleplay obtidos fora do RP (metagaming) é proibida.</li>
+          <li><span class="rule-num">35.</span> Roleplay de ferimentos deve seguir mecânicas do servidor e não ser usado para fingir imunidade a consequências.</li>
+          <li><span class="rule-num">36.</span> Ao criar uma organização, defina regras internas e as submeta à staff quando afetarem o servidor.</li>
+          <li><span class="rule-num">37.</span> Não use insultos reais (ataques pessoais) como parte de RP sem consenso; prefira insultos no personagem e moderados.</li>
+          <li><span class="rule-num">38.</span> Personagens públicos (vereadores, donos de empresas) devem comportar-se compatíveis com a posição em eventos públicos RP.</li>
+          <li><span class="rule-num">39.</span> Use canais corretos para tratar assuntos fora do jogo (negócios, trocas); mantenha RP no jogo e off-topic fora dele.</li>
+          <li><span class="rule-num">40.</span> Testemunhos e depoimentos em RP devem ser verossímeis e evitar contradições óbvias que quebrem a narrativa.</li>
+        </ol>
+      </section>
+
+      <section id="sec-3" class="section card">
+        <h2>3 — Crimes e PvP</h2>
+        <ol class="rules">
+          <li><span class="rule-num">41.</span> Crimes são permitidos dentro do RP, mas devem seguir regras de risco e consequência; não abuse de áreas seguras.</li>
+          <li><span class="rule-num">42.</span> RDM (Random Death Match) — matar players sem motivo RP claro é proibido e punível.</li>
+          <li><span class="rule-num">43.</span> VDM (Vehicle Death Match) — atropelar jogadores deliberadamente sem contexto RP é proibido.</li>
+          <li><span class="rule-num">44.</span> Crimes contra NPCs são válidos, mas repetição abusiva em áreas públicas pode gerar resposta da polícia via staff.</li>
+          <li><span class="rule-num">45.</span> Ao confrontar outro jogador, ofereça oportunidade de reação/defesa; execução imediata sem aviso é proibida em certas situações.</li>
+          <li><span class="rule-num">46.</span> Se sequestrar ou prender um jogador, conduza o RP de forma coerente; tortura e abuso extremo seguem regras específicas e consentimento em roleplays íntimos.</li>
+          <li><span class="rule-num">47.</span> Casas e veículos privados têm proteção: arrombar/roubar exige ferramentas (lockpick) e tempo de ação definido pelo sistema.</li>
+          <li><span class="rule-num">48.</span> Roubo à mão armada exige aviso e chance de entrega de bens; morte imediata sem tentativa de negociação é proibida.</li>
+          <li><span class="rule-num">49.</span> Crimes em massa (ataques a jogadores indiscriminadamente) serão monitorados e podem gerar prisão por roleplay e punições fora dele.</li>
+          <li><span class="rule-num">50.</span> Uso de explosivos em áreas urbanas requer autorização em eventos; destruição massiva será tratada pela staff.</li>
+          <li><span class="rule-num">51.</span> Se você atacar um jogador que esteja em estado não-combatente (conversando, preso no menu), é infração.</li>
+          <li><span class="rule-num">52.</span> Ao roubar um estabelecimento, siga o cooldown e mecânica do servidor; exploit é punição grave.</li>
+          <li><span class="rule-num">53.</span> Ao cometer crime, espere investigação: não destrua evidências fora do RP que impeçam punições justas.</li>
+          <li><span class="rule-num">54.</span> Jogadores mortos em combate devem seguir regras de respawn/ressair; não use respawn para evitar consequências RP legítimas.</li>
+          <li><span class="rule-num">55.</span> Crimes repetidos sem preocupação de risco (suicídio após crime, por exemplo) são considerados abuso de mecânica.</li>
+          <li><span class="rule-num">56.</span> Assaltos/roubos a NPCs têm mecânicas próprias; tentar duplicar lucro via bug é proibido.</li>
+          <li><span class="rule-num">57.</span> Ao trocar tiros, use posição e cobertura; atirar cegamente por trás de paredes é meta/powergaming.</li>
+          <li><span class="rule-num">58.</span> Se for preso ou rendido, coopere em RP; resistência injustificada pode gerar punição por abuso.</li>
+          <li><span class="rule-num">59.</span> Crimes complexos (sequestro em grande escala, ataques coordenados) devem ser avisados à staff antes quando envolverem muitos jogadores e impacto no servidor.</li>
+          <li><span class="rule-num">60.</span> Exploração de lag, desync ou rollback para escapar de crimes é proibida e resultará em punição grave.</li>
+        </ol>
+      </section>
+
+      <section id="sec-4" class="section card">
+        <h2>4 — Polícia & Roleplay Legal</h2>
+        <ol class="rules">
+          <li><span class="rule-num">61.</span> Policial em serviço deve agir de acordo com a lei RP e regras internas da força; abuso de poder é punido.</li>
+          <li><span class="rule-num">62.</span> Prisões, buscas e revistas devem seguir procedimentos RP: comunicar suspeita, pedir autorização para revista quando aplicável.</li>
+          <li><span class="rule-num">63.</span> Algema, revista ou busca de inventário só pode ser feita com item e comandos corretos do sistema (se aplicável).</li>
+          <li><span class="rule-num">64.</span> Uso letal pela polícia requer justificativa clara (ameaça imediata) e registro do ocorrido via ticket se necessário.</li>
+          <li><span class="rule-num">65.</span> Prisões longas devem ter processo RP: audiência, provas, possibilidade de defesa em RP.</li>
+          <li><span class="rule-num">66.</span> Polícias não podem agir como donos de facções ou cometer crimes sem sofrer consequências internas e externas.</li>
+          <li><span class="rule-num">67.</span> Uso de veículos e armas especiais é restrito a postos específicos; venda ou transferência é proibida sem autorização.</li>
+          <li><span class="rule-num">68.</span> Ao executar mandados, policiais devem seguir regras de invasão e uso de força progressiva.</li>
+          <li><span class="rule-num">69.</span> Qualquer policial que abuse de comandos administrativos fora do contexto será imediatamente suspenso e investigado.</li>
+          <li><span class="rule-num">70.</span> Policiais devem documentar prisões de jogadores notáveis quando solicitado pela staff.</li>
+          <li><span class="rule-num">71.</span> Ato de atirar em civis desarmados sem justificativa é infração grave para policiais.</li>
+          <li><span class="rule-num">72.</span> Policiais que fizerem uso indevido de blips/alerts ou manipulação de sistemas serão punidos.</li>
+          <li><span class="rule-num">73.</span> Intervenções em eventos privados exigem justificativa e, em alguns casos, autorização de staff.</li>
+          <li><span class="rule-num">74.</span> Recompensas por captura devem seguir valores e regras do servidor, sem acordos externos que burlam economia.</li>
+          <li><span class="rule-num">75.</span> Policiais podem usar força não letal (stun, taser) conforme mecânica; abuso contínuo gera punição.</li>
+          <li><span class="rule-num">76.</span> Toda apreensão de bens (veículos, dinheiro) deve ser registrada em RP e documentada quando o sistema permitir.</li>
+          <li><span class="rule-num">77.</span> Plantões e escalas de polícia devem ser respeitados; fingir plantão sem estar disponível é infração administrativa.</li>
+          <li><span class="rule-num">78.</span> Investigação de crimes pode incluir perícia e testemunhos; falsas acusações intencionais trazem sanções.</li>
+          <li><span class="rule-num">79.</span> Policiais devem evitar perseguições de alto impacto em áreas com grande tráfego sem coordenação da staff.</li>
+          <li><span class="rule-num">80.</span> Oficiais que vazarem informações sensíveis do servidor (códigos, sistemas) serão punidos severamente.</li>
+        </ol>
+      </section>
+
+      <section id="sec-5" class="section card">
+        <h2>5 — Facções & Organização</h2>
+        <ol class="rules">
+          <li><span class="rule-num">81.</span> Facções devem ter propósito e regras internas; recrutamento massivo sem controle é proibido.</li>
+          <li><span class="rule-num">82.</span> Recrutamento forçado (obrigar participar) é proibido; convite e persuasão RP são permitidos.</li>
+          <li><span class="rule-num">83.</span> Territórios e guerras entre facções devem seguir limites e não destruir a experiência de outros jogadores.</li>
+          <li><span class="rule-num">84.</span> Uso de equipamentos exclusivos por facções fora do seu âmbito é proibido sem autorização.</li>
+          <li><span class="rule-num">85.</span> Vendas e extorsões entre facções devem respeitar cooldowns e não travar áreas públicas.</li>
+          <li><span class="rule-num">86.</span> Facções não podem recrutar staff ativo ou usar informações internas em benefício próprio.</li>
+          <li><span class="rule-num">87.</span> Ataques coordenados que provoquem lag ou queda do servidor serão vetados e investigados.</li>
+          <li><span class="rule-num">88.</span> Facções que promovem racismo, ódio ou crimes de ódio serão banidas imediatamente.</li>
+          <li><span class="rule-num">89.</span> Conflitos entre facções devem permitir negociação e rendição; execuções sumárias sem RP são proibidas.</li>
+          <li><span class="rule-num">90.</span> Preferências por membros (paywall) para entrar em facção são proibidas se envolverem pagamento real fora do servidor.</li>
+          <li><span class="rule-num">91.</span> Facções com poder armado nacional (ex: milícia) precisam passar por aprovação da staff antes de operar publicamente.</li>
+          <li><span class="rule-num">92.</span> Líderes de facção são responsáveis por conduta dos membros; abuso do cargo pode resultar em dissolução da facção.</li>
+          <li><span class="rule-num">93.</span> Facções devem manter registros de assaltos/eventos relevantes quando solicitado pela staff.</li>
+          <li><span class="rule-num">94.</span> Uso de exploits para beneficiar facção é infração grave para todos os envolvidos.</li>
+          <li><span class="rule-num">95.</span> Facções não devem monopolizar eventos ou impedir novos players de participarem de conteúdo RP.
+</li>
+          <li><span class="rule-num">96.</span> Troca de territórios e acordos de paz devem ser registrados em RP e, quando necessário, comunicados à staff.</li>
+          <li><span class="rule-num">97.</span> Facções podem criar lojas e serviços, mas devem seguir regras econômicas do servidor.</li>
+          <li><span class="rule-num">98.</span> Criação de facções que reproduzam grupos extremistas reais é proibida.</li>
+          <li><span class="rule-num">99.</span> Promoções internas que impliquem benefícios de jogo devem ser documentadas e não explorarem bugs.</li>
+          <li><span class="rule-num">100.</span> Merge, split ou transferência de facção requer notificação à staff quando afetam economia ou território.</li>
+        </ol>
+      </section>
+
+      <section id="sec-6" class="section card">
+        <h2>6 — Trânsito & Veículos</h2>
+        <ol class="rules">
+          <li><span class="rule-num">101.</span> Respeite sinais de trânsito em áreas urbanas; dirigir de forma imprudente que cause VDM é proibido.</li>
+          <li><span class="rule-num">102.</span> Estacionamento indevido em áreas críticas pode gerar multa RP e remoção do veículo.</li>
+          <li><span class="rule-num">103.</span> Uso de veículos de emergência sem estar em serviço é proibido e passível de punição.</li>
+          <li><span class="rule-num">104.</span> Tuning visual e performance deve seguir limites do servidor; mods que quebrem física são proibidos.</li>
+          <li><span class="rule-num">105.</span> Abuso de bugs de veículos (teleporte, clipping) para escapar de perseguição é proibido.</li>
+          <li><span class="rule-num">106.</span> Transporte de cargas ilícitas precisa de RP coerente; carregar itens ilegais sem RP pode acarretar apreensão.</li>
+          <li><span class="rule-num">107.</span> Corridas de rua só são permitidas em eventos aprovados; organizar corridas públicas sem autorização é proibido.</li>
+          <li><span class="rule-num">108.</span> Veículos abandonados em locais públicos por mais de X horas podem ser removidos pelo staff.</li>
+          <li><span class="rule-num">109.</span> Venda e revenda de veículos deve respeitar documentação e não pode ser feita com duplicação de bens.</li>
+          <li><span class="rule-num">110.</span> Uso de veículos para bloquear ruas com objetivo de grief é proibido.</li>
+          <li><span class="rule-num">111.</span> Passageiros presos ou rendidos em veículo não podem ser jogados fora sem RP apropriado.</li>
+          <li><span class="rule-num">112.</span> Se seu carro causar dano real à jogabilidade (lag) por bugs, desconecte e reporte imediatamente.</li>
+          <li><span class="rule-num">113.</span> Reboques e cargas perigosas exigem sinalização e aviso RP quando transitam por áreas povoadas.</li>
+          <li><span class="rule-num">114.</span> Transferência de posse de veículo deve ser feita em local seguro com documentação RP quando aplicável.</li>
+          <li><span class="rule-num">115.</span> Abuso de sirenes e luzes para se passar por autoridade é proibido se não estiver em serviço.</li>
+          <li><span class="rule-num">116.</span> Veículos de NPCs ou lojas públicas não podem ser roubados repetidamente sem cooldown definido.
+</li>
+          <li><span class="rule-num">117.</span> Uso de veículos em áreas designadas como restritas é proibido sem permissão específica.</li>
+          <li><span class="rule-num">118.</span> Transferência de veículos via glitch ou exploit é infração grave e leva à reversão/ban.</li>
+          <li><span class="rule-num">119.</span> Pilotos de aeronaves devem respeitar altitudes e rotas em áreas urbanas para evitar grief aéreo.
+</li>
+          <li><span class="rule-num">120.</span> Se você causar um acidente RP, ofereça auxílio, registre a ocorrência e negocie compensação em RP.</li>
+        </ol>
+      </section>
+
+      <section id="sec-7" class="section card">
+        <h2>7 — Staff & Punções</h2>
+        <ol class="rules">
+          <li><span class="rule-num">121.</span> Decisões da staff são finais durante ocorrências; apelações podem ser feitas por ticket posteriormente.</li>
+          <li><span class="rule-num">122.</span> Staff não pode favorecer jogadores; denúncias de favorecimento devem ser bem fundamentadas.</li>
+          <li><span class="rule-num">123.</span> Abuso de poderes administrativos (kick/ban sem justificativa) resultará em investigação interna.</li>
+          <li><span class="rule-num">124.</span> Pedidos de promoção na staff devem seguir processo interno e não podem ser negociados publicamente.</li>
+          <li><span class="rule-num">125.</span> Punições variam conforme gravidade: advertência, mute, jail RP, temporary ban, permaban.</li>
+          <li><span class="rule-num">126.</span> Provas falsas contra staff geram punição automática ao denunciante.</li>
+          <li><span class="rule-num">127.</span> Jugamento público de staff sem provas será tratado como desacato e pode gerar sanções.</li>
+          <li><span class="rule-num">128.</span> Staff não deve interferir em eventos RP sem motivo claro ou sem comunicar previamente os organizadores.</li>
+          <li><span class="rule-num">129.</span> Jogadores devem aceitar punições e cumprir o período determinado; descumprimento adiciona penalidades.</li>
+          <li><span class="rule-num">130.</span> Em caso de erro administrativo comprovado, staff corrigirá a situação e explicará a decisão publicamente quando possível.</li>
+          <li><span class="rule-num">131.</span> Ban appeals devem incluir evidências e argumentação clara; apelos vazios serão recusados.</li>
+          <li><span class="rule-num">132.</span> Membro da staff que cometer infração grave será tratado com as mesmas regras e transparência.
+</li>
+          <li><span class="rule-num">133.</span> Penalidades repetidas a um mesmo jogador podem escalar; comportamento residual será levado em conta.</li>
+          <li><span class="rule-num">134.</span> Staff tem canais internos; vazamento de decisões internas sem autorização é proibido.</li>
+          <li><span class="rule-num">135.</span> Jogadores podem solicitar revisão de ações de staff dentro de um prazo especificado (ver canal de apelação).</li>
+          <li><span class="rule-num">136.</span> Infrações que afetem economia do servidor podem ter reversão de ganho e apreensão de bens.
+</li>
+          <li><span class="rule-num">137.</span> Denúncias anônimas são aceitas, mas denúncias com prova têm prioridade na investigação.
+</li>
+          <li><span class="rule-num">138.</span> Missconduct de staff em RP (jogar em modo favoritismo) também é passível de apelação e investigação.
+</li>
+          <li><span class="rule-num">139.</span> Comunicações oficiais da staff serão feitas em canais designados; siga as instruções quando solicitadas.
+</li>
+          <li><span class="rule-num">140.</span> A staff reserva-se o direito de alterar regras com aviso prévio; jogadores devem acompanhar atualizações.</li>
+        </ol>
+      </section>
+
+      <section id="sec-8" class="section card">
+        <h2>8 — Economia & Itens</h2>
+        <ol class="rules">
+          <li><span class="rule-num">141.</span> Abuso de economia (duplicar itens/dinheiro) é infração gravíssima e resultará em ban e reversão de gains.</li>
+          <li><span class="rule-num">142.</span> Venda de itens por dinheiro real fora dos canais oficiais é estritamente proibida.</li>
+          <li><span class="rule-num">143.</span> Trocas entre jogadores devem ser feitas em locais públicos e registradas quando de alto valor.</li>
+          <li><span class="rule-num">144.</span> Explorar bugs para obter itens raros é proibido; reporte o bug e aguarde correção.
+</li>
+          <li><span class="rule-num">145.</span> Comércio de itens ilegais deve seguir regras RP; vendas em massa sem risco podem ser vetadas.
+</li>
+          <li><span class="rule-num">146.</span> Itens exclusivos do servidor (skin, veículo) não podem ser clonados ou vendidos sem permissão.
+</li>
+          <li><span class="rule-num">147.</span> Caixa-forte, cofres e sistemas de armazenamento têm limites; burlar limites é infração.
+</li>
+          <li><span class="rule-num">148.</span> Se você receber item por erro, deve reportar e não usar até autorização da staff.
+</li>
+          <li><span class="rule-num">149.</span> Monitoramento de preços pode ser aplicado; manipulação de mercado por cartel é proibida.
+</li>
+          <li><span class="rule-num">150.</span> Pagamentos por serviços (mecânica, táxi) devem seguir tabelas de preço sugeridas quando existentes.
+</li>
+          <li><span class="rule-num">151.</span> Bancos e instituições financeiras simuladas devem seguir regras de auditoria quando solicitadas.
+</li>
+          <li><span class="rule-num">152.</span> Economia do servidor pode sofrer ajustes; perdas decorrentes de mudanças são parte do jogo.
+</li>
+          <li><span class="rule-num">153.</span> Jogadores não podem rastrear controles administrativos de economia sem autorização.
+</li>
+          <li><span class="rule-num">154.</span> Comércio de drogas ou contrabando segue regras específicas; venda massiva sem risco será coibida.
+</li>
+          <li><span class="rule-num">155.</span> Lucros obtidos via exploração serão revertidos e sujeitos a punição adicional.
+</li>
+          <li><span class="rule-num">156.</span> Itens perdidos por bugs devem ser reportados; staff avaliará possibilidades de restituição.
+</li>
+          <li><span class="rule-num">157.</span> Doações entre jogadores são permitidas, desde que não violem regras de transferência de poder ou favorecimento.
+</li>
+          <li><span class="rule-num">158.</span> Venda de propriedades deve seguir procedimentos RP e utilizar contratos quando aplicável.
+</li>
+          <li><span class="rule-num">159.</span> Sistemas de venda automática (ped vendedora) devem seguir limites de frequência e valor.
+</li>
+          <li><span class="rule-num">160.</span> Caso de fraude em transação entre jogadores, envie ticket com provas; staff mediará quando possível.
+</li>
+        </ol>
+      </section>
+
+      <section id="sec-9" class="section card">
+        <h2>9 — Chat, Voz & Comunidade</h2>
+        <ol class="rules">
+          <li><span class="rule-num">161.</span> Chat público e voz devem manter respeito; ofensas graves são passíveis de mute/ban.</li>
+          <li><span class="rule-num">162.</span> Spam, flood e capslock excessivo são proibidos em canais públicos.
+</li>
+          <li><span class="rule-num">163.</span> Discussões políticas e religiosas extremas em alto volume podem ser moderadas para evitar conflito.
+</li>
+          <li><span class="rule-num">164.</span> Uso de microfone para provocar, insultar ou atrapalhar eventos será punido.
+</li>
+          <li><span class="rule-num">165.</span> Evite compartilhar spoilers de conteúdo sensível sem aviso; use canais apropriados.
+</li>
+          <li><span class="rule-num">166.</span> No chat in-game, mantenha mensagens relacionadas ao RP quando possível; off-topic em canais específicos.
+</li>
+          <li><span class="rule-num">167.</span> Reporte abuso verbal com provas (gravação, timestamps) para análise da staff.
+</li>
+          <li><span class="rule-num">168.</span> Inglês/Português: respeite a comunidade; use o idioma do servidor/ canal conforme indicado.
+</li>
+          <li><span class="rule-num">169.</span> Misturar RP e OOC (out of character) sem separar pode causar confusão; use [OOC] quando necessário.
+</li>
+          <li><span class="rule-num">170.</span> Eventos comunitários: siga normas e instruções dos organizadores; comportamento tóxico leva à expulsão.
+</li>
+          <li><span class="rule-num">171.</span> Divulgação de cheats, exploits ou técnicas de abuso em público é proibida e será punida.
+</li>
+          <li><span class="rule-num">172.</span> Recrutamento para grupos externos sem permissão do servidor não é permitido.
+</li>
+          <li><span class="rule-num">173.</span> Denúncias públicas sem prova podem ser tratadas como difamação e levar a sanções.
+</li>
+          <li><span class="rule-num">174.</span> Ao organizar eventos comunitários, avise staff caso precise de recursos (mods, NPCs especiais, etc.).
+</li>
+          <li><span class="rule-num">175.</span> Divulgação de dados sensíveis (vulnerabilidades técnicas) deve ser feita em privado para staff.
+</li>
+          <li><span class="rule-num">176.</span> Membros novos devem ser recebidos com respeito; assédio ou bullying de novatos é infração.
+</li>
+          <li><span class="rule-num">177.</span> Redes e bots não-autorizados no Discord/serviços do servidor são proibidos.
+</li>
+          <li><span class="rule-num">178.</span> Autorização é necessária para transmissões ao vivo (stream) que envolvam eventos internos do servidor.
+</li>
+          <li><span class="rule-num">179.</span> Use canais de reclamação e sugestão antes de escalar problemas em público.
+</li>
+          <li><span class="rule-num">180.</span> O servidor pode ter regras adicionais em canais específicos; respeite as regras de cada canal.
+</li>
+        </ol>
+      </section>
+
+      <section id="sec-10" class="section card">
+        <h2>10 — Powergaming / Metagaming / RDM / VDM</h2>
+        <ol class="rules">
+          <li><span class="rule-num">181.</span> <strong class="rule-strong">Metagaming</strong>: usar informação obtida fora do jogo para vantagem RP é proibido.</li>
+          <li><span class="rule-num">182.</span> <strong class="rule-strong">Powergaming</strong>: forçar ações impossíveis ao personagem (ex: acertar tiros infalivelmente) é proibido.</li>
+          <li><span class="rule-num">183.</span> Não descreva ações ou resultados que não podem ser confirmados pela mecânica do jogo (ex: precisão milagrosa).</li>
+          <li><span class="rule-num">184.</span> Ao capturar alguém, não force escolha de morte/respawn: permita opções de rendição ou negociação quando cabível.</li>
+          <li><span class="rule-num">185.</span> Evite inventar conversas inteiras em nome de outro jogador; roleplay colaborativo exige consentimento.</li>
+          <li><span class="rule-num">186.</span> Usar canais de fora (Discord privado, logs) para coordenar ataques sem evidência RP pode configurar metagame.</li>
+          <li><span class="rule-num">187.</span> Se for morto sem chance de reação ou aviso, isso pode configurar RDM; reporte com provas.
+</li>
+          <li><span class="rule-num">188.</span> Forçar consequência sem mecânica (ex: perder item sem loot system) é powergaming e proibido.
+</li>
+          <li><span class="rule-num">189.</span> Ao realizar ação letal, descreva o contexto e dê oportunidade ao adversário quando razoável.
+</li>
+          <li><span class="rule-num">190.</span> Jogadores que repetem power/metagaming após advertência sofrerão punições progressivas.
+</li>
+          <li><span class="rule-num">191.</span> Não use informações obtidas como staff ou moderador para obter vantagem, mesmo em conta secundária.
+</li>
+          <li><span class="rule-num">192.</span> Evite narrativas que contradigam evidências do servidor (logs, gravações); a mecânica do jogo tem prioridade.
+</li>
+          <li><span class="rule-num">193.</span> Se houver suspeita de metagame em grupo, a investigação poderá incluir logs do Discord/voz quando autorizado.
+</li>
+          <li><span class="rule-num">194.</span> Não force outros a aceitar perdas irreversíveis sem processo RP; negocie, registre e aceite contestação.
+</li>
+          <li><span class="rule-num">195.</span> Jogadores que alegam metagame devem fornecer provas claras; denúncias falsas serão punidas.
+</li>
+          <li><span class="rule-num">196.</span> Powergaming em inventário (usar itens impossíveis) é proibido e passível de ban e reversão.
+</li>
+          <li><span class="rule-num">197.</span> Se ocorrer RDM/VDM com staff envolvido, abra ticket para apuração independente.
+</li>
+          <li><span class="rule-num">198.</span> Jogadores devem considerar o contexto: matar por necessidade RP é diferente de matar por troll.
+</li>
+          <li><span class="rule-num">199.</span> Em grandes cenários PvP, registre participantes e regras antes de iniciar; facilita resolução de conflitos.
+</li>
+          <li><span class="rule-num">200.</span> Regras de power/metagaming são avaliadas caso a caso; a staff tem a palavra final na interpretação.</li>
+        </ol>
+        <div class="note">Observação: estas regras são um índice completo e podem ser adaptadas à política interna do servidor. Para alterações, consulte a staff.</div>
+      </section>
+
+      <footer class="card">
+        <div>Feito com ❤️ — Mantenha o RP justo e divertido. Para alterações específicas, peça no canal de regras.</div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
